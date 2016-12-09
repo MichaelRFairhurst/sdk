@@ -68,7 +68,8 @@ class InheritedReferenceContributor extends DartCompletionContributor
       return EMPTY_LIST;
     }
     containingLibrary = request.libraryElement;
-    return _computeSuggestionsForClass2(classDecl.element, request);
+    return _computeSuggestionsForClass2(resolutionMap
+        .elementDeclaredByClassDeclaration(classDecl), request);
   }
 
   List<CompletionSuggestion> _computeSuggestionsForClass2(
@@ -85,9 +86,7 @@ class InheritedReferenceContributor extends DartCompletionContributor
           isFunctionalArgument: isFunctionalArgument);
     }
 
-    for (InterfaceType type in resolutionMap
-        .elementDeclaredByClassDeclaration(classDecl)
-        .allSupertypes) {
+    for (InterfaceType type in classElement.allSupertypes) {
       _addSuggestionsForType(type, optype,
           isFunctionalArgument: isFunctionalArgument);
     }
