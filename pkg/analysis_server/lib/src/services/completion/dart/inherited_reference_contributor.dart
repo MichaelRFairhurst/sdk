@@ -68,7 +68,7 @@ class InheritedReferenceContributor extends DartCompletionContributor
       return EMPTY_LIST;
     }
     containingLibrary = request.libraryElement;
-    return _computeSuggestionsForParentsOfClass(classDecl.element, request);
+    return _computeSuggestionsForClass2(classDecl.element, request);
   }
 
   List<CompletionSuggestion> _computeSuggestionsForClass2(

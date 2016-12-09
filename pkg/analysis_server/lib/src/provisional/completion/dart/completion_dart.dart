@@ -100,7 +100,8 @@ abstract class DartCompletionRequest extends CompletionRequest {
   DartType get objectType;
 
   /**
-   * The OpType which describes which types of suggestions would fit the request
+   * The [OpType] which describes which types of suggestions would fit the
+   * request.
    */
   OpType get opType;
 

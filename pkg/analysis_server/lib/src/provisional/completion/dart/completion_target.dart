@@ -158,9 +158,7 @@ class CompletionTarget {
     // prune the search to the point where no recursion is necessary; at each
     // step in the process we know exactly which child node we need to proceed
     // to.
-    if (entryPoint == null) {
-      entryPoint = compilationUnit;
-    }
+    entryPoint ??= compilationUnit;
     AstNode containingNode = entryPoint;
     outerLoop: while (true) {
       if (containingNode is Comment) {
